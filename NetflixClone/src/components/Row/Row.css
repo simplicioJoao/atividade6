@@ -1,0 +1,29 @@
+/* src/components/Row/Row.css */
+.row {
+  margin: 2rem;
+}
+
+.row h2 {
+  color: #e5e5e5;
+}
+
+.row-posters {
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.row-posters::-webkit-scrollbar {
+  display: none;
+}
+
+.row-poster {
+  max-height: 300px; /* Ajuste a altura máxima das imagens aqui */
+  margin-right: 1rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.row-poster:hover {
+  transform: scale(1.1);
+}

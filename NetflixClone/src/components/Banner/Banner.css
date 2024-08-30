@@ -1,0 +1,75 @@
+/* src/components/Banner/Banner.css */
+.banner {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  color: #e5e5e5;
+  position: relative;
+  padding: 2rem;
+}
+
+.banner-content {
+  z-index: 1;
+}
+
+.banner h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.banner p {
+  font-size: 1.2rem;
+  max-width: 500px;
+  margin-bottom: 1rem;
+}
+
+.banner-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.banner-buttons button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.play-button {
+  background-color: white;
+  color: black;
+}
+
+.more-button {
+  background-color: rgba(109, 109, 110, 0.7);
+  color: white;
+}
+
+.banner-indicators {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #e5e5e5;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.indicator.active {
+  opacity: 1;
+}

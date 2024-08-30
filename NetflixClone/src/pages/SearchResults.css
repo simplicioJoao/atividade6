@@ -1,0 +1,9 @@
+/* src/pages/SearchResults.css */
+.search-results {
+    margin: 2rem;
+  }
+  
+  .search-results h2 {
+    color: #e5e5e5;
+    margin-bottom: 1rem;
+  }

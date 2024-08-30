@@ -1,0 +1,21 @@
+.movie-details {
+    background-color: #141414;
+    color: #e5e5e5;
+  }
+  
+  .movie-details h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .movie-details p {
+    margin: 0.5rem 0;
+  }
+  
+  .movie-details p:last-child {
+    font-weight: bold;
+  }
+
+  .movie-info {
+    padding: 2rem;
+  }

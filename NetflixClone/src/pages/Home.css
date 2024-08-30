@@ -1,0 +1,10 @@
+/* src/pages/Home.css */
+.home {
+    background-color: #141414;
+    color: #e5e5e5;
+  }
+  
+  .home h2 {
+    color: #e5e5e5;
+    margin: 1.5rem 0;
+  }

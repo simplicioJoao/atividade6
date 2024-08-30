@@ -1,0 +1,56 @@
+/* src/components/Navbar/Navbar.css */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: transparent; /* Fundo transparente inicialmente */
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  z-index: 1000;
+  transition: background-color 0.3s ease; /* Transição suave para a mudança de cor */
+}
+
+.navbar.scrolled {
+  background-color: rgba(0, 0, 0, 0.7); /* Mantém o fundo atual quando rolado */
+}
+
+.logo {
+  height: 3rem;
+  cursor: pointer;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+}
+
+.navbar input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #e5e5e5;
+  color: #e5e5e5;
+  padding: 0.5rem;
+  margin-right: 1rem;
+}
+
+.navbar input:focus {
+  outline: none;
+}
+
+.search-button {
+  background: none; /* Remove o fundo */
+  border: none; /* Remove a borda */
+  color: #e5e5e5; /* Cor do ícone */
+  cursor: pointer; /* Muda o cursor para pointer */
+  padding: 0; /* Remove o padding */
+  margin: 0; /* Remove a margem */
+  font-size: 1.2rem; /* Tamanho do ícone */
+}
+
+.search-button:hover {
+  opacity: 0.8; /* Efeito de hover opcional */
+}
