@@ -7,10 +7,18 @@
   color: #e5e5e5;
 }
 
+.row-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
 .row-posters {
   display: flex;
   overflow-x: scroll;
   overflow-y: hidden;
+  scroll-behavior: smooth;
+  padding: 10px 0;
 }
 
 .row-posters::-webkit-scrollbar {
@@ -26,4 +34,25 @@
 
 .row-poster:hover {
   transform: scale(1.1);
+}
+
+.arrow {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 24px;
+  padding: 10px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.arrow.left {
+  left: 10px; /* Ajuste a posição da seta esquerda */
+}
+
+.arrow.right {
+  right: 10px; /* Ajuste a posição da seta direita */
 }

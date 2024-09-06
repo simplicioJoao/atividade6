@@ -5,6 +5,7 @@ import Row from '../components/Row/Row';
 import './Home.css';
 import Banner from '../components/Banner/Banner';
 import Navbar from '../components/Navbar/Navbar';
+import Footer from '../components/Footer/Footer'
 
 const Home = () => {
   const [movies, setMovies] = useState({
@@ -47,6 +48,7 @@ const Home = () => {
       <Row title="Horror" movies={movies.horrorMovies} />
       <Row title="Romance" movies={movies.romanceMovies} />
       <Row title="Documentaries" movies={movies.documentaries} />
+      <Footer/>
     </div>
   );
 };

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Row from '../components/Row/Row';
 import Navbar from '../components/Navbar/Navbar';
+import Footer from '../components/Footer/Footer'
 import { useParams } from 'react-router-dom';
 import './SearchResults.css'
 
@@ -23,6 +24,7 @@ const SearchResults = () => {
       <Navbar/>
       <h2>Resultados da Pesquisa para: {query}</h2>
       <Row title="Resultados" movies={results} />
+      <Footer/>
     </div>
   );
 };

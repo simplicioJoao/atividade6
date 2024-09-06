@@ -28,7 +28,7 @@ const Login = () => {
   return (
     <>
       <div className="background-wrapper">
-        <img src={NetflixLogo} alt="Netflix Logo" className="logo" onClick={() => navigate('/')} />
+        <img src={NetflixLogo} alt="Netflix Logo" className="logo" onClick={() => navigate('/home')} />
         <div className="background"></div>
         <div className="login">
           <h1>Entrar</h1>

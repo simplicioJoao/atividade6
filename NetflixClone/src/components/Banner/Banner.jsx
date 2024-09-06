@@ -33,6 +33,11 @@ const Banner = ({ movies }) => {
       {currentMovie && (
         <div className="banner-content">
           <h1>{currentMovie.title || currentMovie.name}</h1>
+          <div className='banner-info'>
+            <p>{currentMovie.popularity} points</p>
+            <p>{currentMovie.vote_count} votes</p>
+            <p>{currentMovie.release_date ? currentMovie.release_date.slice(0, 4) : currentMovie.first_air_date.slice(0, 4)}</p>
+          </div>
           <p>{currentMovie.overview}</p>
           <div className="banner-buttons">
             <button className="play-button">
