@@ -61,17 +61,24 @@
   opacity: 0.8; /* Efeito de hover opcional */
 }
 
+/* src/components/Navbar/Navbar.css */
 .logout-button {
-  background-color: #e50914; /* Cor de fundo vermelha */
-  color: white; /* Cor do texto */
+  background-color: transparent; /* Fundo transparente */
+  color: white; /* Cor do ícone */
   border: none; /* Remove a borda */
-  padding: 0.5rem 1rem; /* Adiciona espaço interno */
   cursor: pointer; /* Muda o cursor para pointer */
-  border-radius: 5px; /* Bordas arredondadas */
-  font-size: 1rem; /* Tamanho da fonte */
-  transition: background-color 0.3s ease; /* Transição suave para a mudança de cor */
+  padding: 0.5rem; /* Adiciona espaço interno */
+  font-size: 1.5rem; /* Tamanho do ícone */
+  transition: color 0.3s ease; /* Transição suave para a mudança de cor */
+  border-radius: 50%; /* Deixa o botão redondo */
+  width: 2.5rem; /* Define a largura do botão */
+  height: 2.5rem; /* Define a altura do botão */
+  display: flex; /* Usa flexbox para centralizar o ícone */
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
 }
 
 .logout-button:hover {
-  background-color: #f40612; /* Cor de fundo ao passar o mouse */
+  color: #e50914; /* Muda a cor ao passar o mouse */
+  background-color: rgba(255, 255, 255, 0.2); /* Adiciona um fundo ao passar o mouse */
 }

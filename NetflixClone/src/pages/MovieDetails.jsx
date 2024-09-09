@@ -7,7 +7,7 @@ import Navbar from '../components/Navbar/Navbar';
 import Banner from '../components/Banner/Banner';
 import Footer from '../components/Footer/Footer';
 
-const MovieDetails = () => {
+const MovieDetails = ({ onLogout}) => {
   const { type, id } = useParams();
   const [content, setContent] = useState(null);
   const [credits, setCredits] = useState([]);
@@ -53,7 +53,7 @@ const MovieDetails = () => {
     <div className="movie-details">
       {content ? (
         <>
-          <Navbar />
+          <Navbar onLogout={onLogout} />
           <Banner movies={[content]} />
           <div className="movie-info">
             {trailer && (

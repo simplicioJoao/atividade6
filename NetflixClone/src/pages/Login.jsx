@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import './Login.css';
 import NetflixLogo from '../assets/netflix-logo.png';
 
-const Login = ({ onLogin }) => { // Recebe a função onLogin como prop
+const Login = ({ onLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -60,7 +60,10 @@ const Login = ({ onLogin }) => { // Recebe a função onLogin como prop
             <button type="button">Usar um código de acesso</button>
             <p><a href="#">Esqueceu a senha?</a></p>
             <div className='left'>
-              <div className='check'><input type="checkbox" id="check-input" /><label id="check">Lembre-se de mim</label></div>
+              <div className='check'>
+                <input type="checkbox" id="check-input" />
+                <label htmlFor="check-input" id="check">Lembre-se de mim</label>
+              </div>
               <p>Novo por aqui? <a href="#">Assine agora</a></p>
               <p id='protect'>Esta página é protegida pelo Google reCAPTCHA para garantir que você não é um robô.<a href="#"> Saiba mais.</a></p>
             </div>

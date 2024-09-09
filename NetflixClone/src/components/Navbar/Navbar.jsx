@@ -4,6 +4,7 @@ import './Navbar.css';
 import { useNavigate } from 'react-router-dom';
 import NetflixLogo from '../../assets/netflix-logo.png';
 import { FaSearch } from 'react-icons/fa'; // Importando o ícone de lupa
+import { FiLogOut } from 'react-icons/fi'; // Importando o ícone de logout
 
 const Navbar = ({ onLogout }) => { // Recebe a função onLogout como prop
   const [searchTerm, setSearchTerm] = useState('');
@@ -49,7 +50,7 @@ const Navbar = ({ onLogout }) => { // Recebe a função onLogout como prop
             <FaSearch /> {/* Ícone de lupa */}
           </button>
         </form>
-        <button className="logout-button" onClick={onLogout}>Logout</button> {/* Botão de logout */}
+        <button className="logout-button" onClick={onLogout}><FiLogOut/></button> {/* Botão de logout */}
       </div>
     </div>
   );

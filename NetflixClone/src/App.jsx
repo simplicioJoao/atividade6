@@ -31,8 +31,8 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Login onLogin={handleLogin} />} /> {/* Passa a função de login */}
         <Route path="/home" element={<ProtectedRoute element={<Home onLogout={handleLogout} />} isLoggedIn={isLoggedIn} />} />
-        <Route path="/:type/:id" element={<ProtectedRoute element={<MovieDetails />} isLoggedIn={isLoggedIn} />} />
-        <Route path="/search/:query" element={<ProtectedRoute element={<SearchResults />} isLoggedIn={isLoggedIn} />} />
+        <Route path="/:type/:id" element={<ProtectedRoute element={<MovieDetails onLogout={handleLogout} />} isLoggedIn={isLoggedIn} />} />
+        <Route path="/search/:query" element={<ProtectedRoute element={<SearchResults onLogout={handleLogout} />} isLoggedIn={isLoggedIn} />} />
       </Routes>
     </Router>
   );

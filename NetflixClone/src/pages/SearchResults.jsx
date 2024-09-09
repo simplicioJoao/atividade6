@@ -7,7 +7,7 @@ import Footer from '../components/Footer/Footer';
 import { useParams } from 'react-router-dom';
 import './SearchResults.css';
 
-const SearchResults = () => {
+const SearchResults = ({ onLogout }) => {
   const { query } = useParams();
   const [results, setResults] = useState([]);
 
@@ -21,7 +21,7 @@ const SearchResults = () => {
 
   return (
     <div className="search-results">
-      <Navbar />
+      <Navbar onLogout={onLogout} />
       <div className='resultados'>
         <h2>Resultados da pesquisa para: {query}</h2>
         <Row title="Resultados" movies={results} isVertical={true} isSearchResults={true} />
