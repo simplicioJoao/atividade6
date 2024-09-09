@@ -1,27 +1,33 @@
 // src/pages/Login.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
 import NetflixLogo from '../assets/netflix-logo.png';
 
-const Login = () => {
+const Login = ({ onLogin }) => { // Recebe a função onLogin como prop
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
+  useEffect(() => {
+    // Verifica se o usuário já está logado
+    const loggedInStatus = localStorage.getItem('loggedIn') === 'true';
+    if (loggedInStatus) {
+      navigate('/home'); // Redireciona para a página home se já estiver logado
+    }
+  }, [navigate]);
+
   const handleLogin = (e) => {
     e.preventDefault();
 
-    // Simulando credenciais de login
-    const validEmail = 'user@example.com'; // Email de exemplo
-    const validPassword = 'password'; // Senha de exemplo
+    const validEmail = 'user@example.com';
+    const validPassword = 'password';
 
     if (email === validEmail && password === validPassword) {
-      // Simulando login bem-sucedido
-      localStorage.setItem('loggedIn', true);
-      navigate('/home');
+      onLogin(); // Chama a função de login
+      navigate('/home'); // Redireciona para a página home
     } else {
-      alert('Email ou senha incorretos.'); // Mensagem de erro
+      alert('Email ou senha incorretos.');
     }
   };
 
@@ -51,7 +57,7 @@ const Login = () => {
             />
             <button id="enter" type="submit">Entrar</button>
             <p id='or'>OU</p>
-            <button type="submit">Usar um código de acesso</button>
+            <button type="button">Usar um código de acesso</button>
             <p><a href="#">Esqueceu a senha?</a></p>
             <div className='left'>
               <div className='check'><input type="checkbox" id="check-input" /><label id="check">Lembre-se de mim</label></div>

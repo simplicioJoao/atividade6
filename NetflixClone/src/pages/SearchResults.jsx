@@ -3,9 +3,9 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Row from '../components/Row/Row';
 import Navbar from '../components/Navbar/Navbar';
-import Footer from '../components/Footer/Footer'
+import Footer from '../components/Footer/Footer';
 import { useParams } from 'react-router-dom';
-import './SearchResults.css'
+import './SearchResults.css';
 
 const SearchResults = () => {
   const { query } = useParams();
@@ -21,10 +21,12 @@ const SearchResults = () => {
 
   return (
     <div className="search-results">
-      <Navbar/>
-      <h2>Resultados da Pesquisa para: {query}</h2>
-      <Row title="Resultados" movies={results} />
-      <Footer/>
+      <Navbar />
+      <div className='resultados'>
+        <h2>Resultados da pesquisa para: {query}</h2>
+        <Row title="Resultados" movies={results} isVertical={true} isSearchResults={true} />
+      </div>
+      <Footer />
     </div>
   );
 };

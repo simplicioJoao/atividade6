@@ -5,42 +5,56 @@ import axios from 'axios';
 import './MovieDetails.css';
 import Navbar from '../components/Navbar/Navbar';
 import Banner from '../components/Banner/Banner';
-import Footer from '../components/Footer/Footer'
+import Footer from '../components/Footer/Footer';
 
 const MovieDetails = () => {
-  const { id } = useParams();
-  const [movie, setMovie] = useState(null);
+  const { type, id } = useParams();
+  const [content, setContent] = useState(null);
   const [credits, setCredits] = useState([]);
   const [trailer, setTrailer] = useState('');
 
   useEffect(() => {
-    const fetchMovieDetails = async () => {
-      const response = await axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=cae43bbdae6ea3e5f4a4c29c03ae01d3`);
-      setMovie(response.data);
+    const fetchContentDetails = async () => {
+      try {
+        const response = await axios.get(`https://api.themoviedb.org/3/${type}/${id}?api_key=cae43bbdae6ea3e5f4a4c29c03ae01d3`);
+        if (response.data) {
+          setContent(response.data);
+          fetchCredits(id, type);
+          fetchVideos(id, type);
+        }
+      } catch (error) {
+        console.error(`Erro ao buscar ${type}:`, error);
+      }
     };
 
-    const fetchCredits = async () => {
-      const response = await axios.get(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=cae43bbdae6ea3e5f4a4c29c03ae01d3`);
-      setCredits(response.data.cast);
+    const fetchCredits = async (id, type) => {
+      try {
+        const creditsResponse = await axios.get(`https://api.themoviedb.org/3/${type}/${id}/credits?api_key=cae43bbdae6ea3e5f4a4c29c03ae01d3`);
+        setCredits(creditsResponse.data.cast);
+      } catch (error) {
+        console.error("Erro ao buscar créditos:", error);
+      }
     };
 
-    const fetchVideos = async () => {
-      const response = await axios.get(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=cae43bbdae6ea3e5f4a4c29c03ae01d3`);
-      const trailerData = response.data.results.find(video => video.type === 'Trailer');
-      setTrailer(trailerData ? trailerData.key : '');
+    const fetchVideos = async (id, type) => {
+      try {
+        const videosResponse = await axios.get(`https://api.themoviedb.org/3/${type}/${id}/videos?api_key=cae43bbdae6ea3e5f4a4c29c03ae01d3`);
+        const trailerData = videosResponse.data.results.find(video => video.type === 'Trailer');
+        setTrailer(trailerData ? trailerData.key : '');
+      } catch (error) {
+        console.error("Erro ao buscar vídeos:", error);
+      }
     };
 
-    fetchMovieDetails();
-    fetchCredits();
-    fetchVideos();
-  }, [id]);
+    fetchContentDetails();
+  }, [id, type]);
 
   return (
     <div className="movie-details">
-      {movie ? (
+      {content ? (
         <>
           <Navbar />
-          <Banner movies={[movie]} />
+          <Banner movies={[content]} />
           <div className="movie-info">
             {trailer && (
               <div className="trailer">
@@ -56,10 +70,17 @@ const MovieDetails = () => {
             )}
 
             <div>
-              <p>Release date: {new Date(movie.release_date).toLocaleDateString()}</p>
-              <p>Duration: {movie.runtime} minutes</p>
-              <p>Genres: {movie.genres.map(genre => genre.name).join(', ')}</p>
-              <p>Assessment: {movie.vote_average} ({movie.vote_count} votes)</p>
+              <p>Release date: {new Date(content.release_date || content.first_air_date).toLocaleDateString()}</p>
+              
+              {/* Exibe a duração se for um filme, ou a quantidade de temporadas se for uma série */}
+              {type === 'movie' ? (
+                <p>Duration: {content.runtime} minutes</p>
+              ) : (
+                <p>Number of seasons: {content.number_of_seasons}</p>
+              )}
+
+              <p>Genres: {content.genres.map(genre => genre.name).join(', ')}</p>
+              <p>Assessment: {content.vote_average} ({content.vote_count} votes)</p>
             </div>
             <div className='cast'>
               <h2>Cast</h2>
@@ -72,7 +93,7 @@ const MovieDetails = () => {
               </ul>
             </div>
           </div>
-          <Footer/>
+          <Footer />
         </>
       ) : (
         <p>Loading...</p>

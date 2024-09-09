@@ -7,7 +7,7 @@
   background-color: transparent; /* Fundo transparente inicialmente */
   color: #fff;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Alinha os elementos à esquerda e à direita */
   align-items: center;
   padding: 1rem;
   z-index: 1000;
@@ -23,9 +23,15 @@
   cursor: pointer;
 }
 
+.search-logout-container {
+  display: flex; /* Usar flexbox para alinhar a barra de pesquisa e o botão de logout */
+  align-items: center; /* Alinha verticalmente os itens no centro */
+}
+
 .search-form {
   display: flex;
   align-items: center;
+  margin-right: 1rem; /* Espaço entre a barra de pesquisa e o botão de logout */
 }
 
 .navbar input {
@@ -53,4 +59,19 @@
 
 .search-button:hover {
   opacity: 0.8; /* Efeito de hover opcional */
+}
+
+.logout-button {
+  background-color: #e50914; /* Cor de fundo vermelha */
+  color: white; /* Cor do texto */
+  border: none; /* Remove a borda */
+  padding: 0.5rem 1rem; /* Adiciona espaço interno */
+  cursor: pointer; /* Muda o cursor para pointer */
+  border-radius: 5px; /* Bordas arredondadas */
+  font-size: 1rem; /* Tamanho da fonte */
+  transition: background-color 0.3s ease; /* Transição suave para a mudança de cor */
+}
+
+.logout-button:hover {
+  background-color: #f40612; /* Cor de fundo ao passar o mouse */
 }

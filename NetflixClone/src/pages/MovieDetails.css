@@ -15,12 +15,9 @@
 .movie-info {
   display: flex;
   gap: 100px;
+  justify-content: center;
   align-items: center;
   margin: 3rem;
-}
-
-.cast h2 {
-  margin-bottom: 10px;
 }
 
 .cast, .cast li {
